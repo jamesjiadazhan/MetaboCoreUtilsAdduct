@@ -1,13 +1,4 @@
 .onLoad <- function(libname, pkgname) {
-    adds <- .load_adducts()
-    assign(".ADDUCTS", adds, envir = asNamespace(pkgname))
-    add_multi <- adds$mass_multi
-    add_add <- adds$mass_add
-    names(add_multi) <- rownames(adds)
-    names(add_add) <- rownames(adds)
-    assign(".ADDUCTS_MULT", add_multi, envir = asNamespace(pkgname))
-    assign(".ADDUCTS_ADD", add_add, envir = asNamespace(pkgname))
-
     txts <- dir(system.file("substitutions", package = "MetaboCoreUtilsAdduct"),
                 full.names = TRUE, pattern = "txt$")
     for (txt in txts) {

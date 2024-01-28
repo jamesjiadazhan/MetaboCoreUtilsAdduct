@@ -20,13 +20,6 @@
     assign(".ISOTOPES", .load_isotopes(), envir = asNamespace(pkgname))
 }
 
-.load_adducts <- function() {
-    adds <- utils::read.table(system.file("adducts", "adduct_definition.txt",
-                                          package = "MetaboCoreUtilsAdduct"),
-                              sep = "\t", header = TRUE)
-    rownames(adds) <- adds$name
-    adds
-}
 
 .load_isotopes <- function() {
     iso <- utils::read.table(

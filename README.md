@@ -24,7 +24,7 @@ Currently supported adduct types:
 - "M+Na"
 - "M+NH4"
 - "M+H2O+H"
-- "M+H-H2O"
+- "M-H2O+H"
 - "M+K"
 
 - "M+3H"

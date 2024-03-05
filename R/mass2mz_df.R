@@ -10,8 +10,7 @@ mass2mz_df <- function(mass, adduct = "M+H") {
     mass_adduct_adduct_definition$mz = (mass_adduct_adduct_definition$mass * mass_adduct_adduct_definition$mass_multi) + mass_adduct_adduct_definition$mass_add
 
     # select only the mass, adduct, and adduct_mass columns
-    mass_adduct_adduct_definition = mass_adduct_adduct_definition %>% 
-        dplyr::select(mass, adduct, mz)
+    mass_adduct_adduct_definition = mass_adduct_adduct_definition[, c("mass", "adduct", "mz")]
 
     return(mass_adduct_adduct_definition)
 }

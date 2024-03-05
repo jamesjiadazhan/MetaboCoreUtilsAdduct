@@ -11,7 +11,7 @@ mass2mz_df <- function(mass, adduct = "M+H") {
 
     # select only the mass, adduct, and adduct_mass columns
     mass_adduct_adduct_definition = mass_adduct_adduct_definition %>% 
-        select(mass, adduct, mz)
+        dplyr::select(mass, adduct, mz)
 
     return(mass_adduct_adduct_definition)
 }

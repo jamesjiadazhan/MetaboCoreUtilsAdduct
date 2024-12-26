@@ -18,88 +18,77 @@ devtools::install_github("jamesjiadazhan/MetaboCoreUtilsAdduct") # Install the p
 
 
 
-Currently supported adduct types:
-**Positive**
-- "M+H"
-- "M+Na"
-- "M+NH4"
-- "M+H2O+H"
-- "M-H2O+H"
-- "M+K"
+## Currently supported adduct types:
 
-- "M+3H"
-- "M+2H+Na"
-- "M+H+Na2"
-- "M+Na3"
-- "M+2H"
-- "M+H+NH4"
-- "M+H+K"
-- "M+H+Na"
-- "M+C2H3N+2H"    
-- "M+2Na"
-- "M+C4H6N2+2H"
-- "M+C6H9N3+2H"
-- "M+Li"
-- "M+2Li-H"
-- "M+CH4O+H"
-- "M+C2H3N+H"
-- "M+2Na-H"
-- "M+C3H8O+H"
-- "M+C2H3N+Na"
-- "M+2K-H"
-- "M+C2H6OS+H"
-- "M+C4H6N2+H"    
-- "2M+H"
-- "2M+NH4"
-- "2M+Na"
-- "2M+K"
-- "2M+C2H3N+H"
-- "2M+C2H3N+Na"
-- "3M+H"
-- "M+H-H4O2"      
-- "M+H-CH2O2"
-- "M+H+2Na"
-- "M+3Na"
-- "M+ACN+2H"
-- "M+2ACN+2H"
-- "M+3ACN+2H"
-- "M+CH3OH+H"
-- "M+ACN+H"
-- "M+IsoProp+H"   
-- "M+ACN+Na"
-- "M+DMSO+H"
-- "M+2ACN+H"
-- "M+H-NH3"
-- "M+H-Hexose-H2O"
-- "M+IsoProp+Na+H"
-- "2M+ACN+H"
-- "2M+ACN+Na"
-  
-**Negative**
-- "M-H"
-- "M+Cl"
-- "M+FA-H"
-- "M+Hac-H"
-- "M-2H"  
-- "M-3H"
+### **Positive**
+- #### Single charge (+1)
+  - M+H
+  - M-H2O+H
+  - M+H-H2O
+  - M+H-NH3
+  - M+NH4
+  - M+H2O+H
+  - M+H+H2O
+  - M+Na
+  - M+2Na-H
+  - M+H-Hexose-H2O
+  - M+H-CH2O2
+  - M+H-2H2O
+  - M-2H2O+H
+  - M+H-H4O2
+  - M+Li
+  - M+2Li-H
+  - M+CH4O+H
+  - M+CH3OH+H
+  - M+K
+  - M+ACN+H
+  - M+FA+H
+  - M+C3H8O+H
+  - M+IsoProp+H
+  - M+ACN+Na
+  - M+2K-H
+  - M+DMSO+H
+  - M+2ACN+H
+  - M+IsoProp+Na+H
+- #### Double charge (+2)
+  - M+2H
+  - M+H+NH4
+  - M+H+Na
+  - M+H+K
+  - M+ACN+2H
+  - M+2Na
+  - M+2ACN+2H
+  - M+3ACN+2H
+- #### Triple charge (+3)
+  - M+3H
+  - M+2H+Na
+  - M+H+2Na
+  - M+3Na
 
-- "M+Na-2H"
-- "M+K-2H"
-- "M+C2H3N-H"
-- "M+CHO2"
-- "M+C2H3O2"
-- "M+Br"
-- "M+C2F3O2"      
-- "2M-H"
-- "2M+CHO2"
-- "2M+C2H3O2"
-- "3M-H"
-- "M-H+HCOONa"
-- "M-H2O-H"
-- "M+TFA-H"
-- "2M+FA-H"
-- "2M+Hac-H"
-
+### **Negative**
+- #### Single charge (-1)
+  - M-H2O-H
+  - M-H-H2O
+  - M-H
+  - M+Na-2H
+  - M+Cl
+  - M+K-2H
+  - M+C2H3N-H
+  - M+FA-H
+  - M+Hac-H
+  - M-H+HCOONa
+  - M+Br
+  - M+TFA-H
+  - 2M-H
+  - 2M+FA-H
+  - 2M+Hac-H
+  - 3M-H
+- #### Double charge (-2)
+  - M-2H
+  - 2M-2H
+- #### Triple charge (-3)
+  - M-3H
+  - 2M-3H
 
 ## Below are examples of the functions in the MetaboCoreUtilsAdduct package. Leucine and taurine are used in the examples
 ![image](https://github.com/jamesjiadazhan/MetaboCoreUtilsAdduct/assets/108076575/0cc99bee-8796-4361-8254-351648d2b72d)

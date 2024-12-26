@@ -23,22 +23,17 @@ devtools::install_github("jamesjiadazhan/MetaboCoreUtilsAdduct") # Install the p
 ### **Positive**
 - #### Single charge (+1)
   - M+H
-  - M-H2O+H
   - M+H-H2O
   - M+H-NH3
   - M+NH4
-  - M+H2O+H
   - M+H+H2O
   - M+Na
   - M+2Na-H
   - M+H-Hexose-H2O
   - M+H-CH2O2
   - M+H-2H2O
-  - M-2H2O+H
-  - M+H-H4O2
   - M+Li
   - M+2Li-H
-  - M+CH4O+H
   - M+CH3OH+H
   - M+K
   - M+ACN+H
@@ -67,7 +62,6 @@ devtools::install_github("jamesjiadazhan/MetaboCoreUtilsAdduct") # Install the p
 
 ### **Negative**
 - #### Single charge (-1)
-  - M-H2O-H
   - M-H-H2O
   - M-H
   - M+Na-2H

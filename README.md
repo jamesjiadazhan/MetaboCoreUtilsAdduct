@@ -5,7 +5,7 @@
 - Calculate m/z to monoisotopic mass using m/z and adduct type.
 - Calculate monoisotopic mass using chemical formula
 - Calculate adduct chemical formula using adduct type and neutral chemical formula
-
+- Infer adduct form  within the specified mass accuracy using monoisotopic mass and m/z
 
 # Installation
 
@@ -194,7 +194,39 @@ C6H13NO2 "[C6H14NO2]+"
 C2H7NO3S "[C2H8NO3S]+"
 ```
 
+### adductForm: determine the adduct forms given the provided monoisotopic masses and m/z. This is useful because some algorithms or papers have metabolite outputs with just m/z but it is time-consuming to map out their adduct forms manually.
+```
+r$> tail(metabolite_data_kegg)
+# A tibble: 6 × 7
+  Metabolite    Monoisotopic_mass    mz  time HMDBID      KEGGID Name                                          
+  <chr>                     <dbl> <dbl> <dbl> <chr>       <chr>  <chr>                                         
+1 metoprolol                 267.  268.  6.25 HMDB0001932 C07202 Metoprolol                                    
+2 metronidazole              171.  172.  2.71 HMDB0015052 C07203 Metronidazole                                 
+3 quinine                    324.  325.  6.44 HMDB0014611 C06526 Quinine; (-)-Quinine                          
+4 warfarin                   308.  309.  1.82 HMDB0001935 C01541 Warfarin                                      
+5 C34:1 DAG*                 595.  618.  1.69 HMDB0007102 C13861 1-Hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycerol
+6 C34:1 DAG                  595.  613.  1.69 HMDB0007102 C13861 1-Hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycerol
 
+
+# apply the adductForm function to the metabolite data with kegg information
+metabolite_data_kegg_adduct = adductForm(metabolite_data_kegg$Monoisotopic_mass, metabolite_data_kegg$mz, ion_mode="positive", mass_accuracy=10)
+
+# inner join metabolite_data_kegg and metabolite_data_kegg_adduct using `Monoisotopic Mass` == mass and `precursor_mz_query_spectrum` == mz
+metabolite_data_kegg_2 = inner_join(metabolite_data_kegg, metabolite_data_kegg_adduct, by = c("Monoisotopic_mass" = "mass", "mz" = "mz"), relationship = "many-to-many")
+
+r$> tail(metabolite_data_kegg_2)
+# A tibble: 6 × 16
+  Metabolite    Monoisotopic_mass    mz  time HMDBID      KEGGID Name                                           adduct mass_multi mass_add formula_add formula_sub charge positive mz_calculation ppm_error
+  <chr>                     <dbl> <dbl> <dbl> <chr>       <chr>  <chr>                                          <chr>       <dbl>    <dbl> <chr>       <chr>        <dbl> <lgl>             <dbl>     <dbl>
+1 metoprolol                 267.  268.  6.25 HMDB0001932 C07202 Metoprolol                                     M+H             1     1.01 H           C0               1 TRUE               268.      2.52
+2 metronidazole              171.  172.  2.71 HMDB0015052 C07203 Metronidazole                                  M+H             1     1.01 H           C0               1 TRUE               172.      1.02
+3 quinine                    324.  325.  6.44 HMDB0014611 C06526 Quinine; (-)-Quinine                           M+H             1     1.01 H           C0               1 TRUE               325.      2.08
+4 warfarin                   308.  309.  1.82 HMDB0001935 C01541 Warfarin                                       M+H             1     1.01 H           C0               1 TRUE               309.      2.83
+5 C34:1 DAG*                 595.  618.  1.69 HMDB0007102 C13861 1-Hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycerol M+Na            1    23.0  Na          C0               1 TRUE               618.      2.40
+6 C34:1 DAG                  595.  613.  1.69 HMDB0007102 C13861 1-Hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycerol M+NH4           1    18.0  NH4         C0               1 TRUE               613.      2.01
+
+
+```
 References:
 - https://fiehnlab.ucdavis.edu/staff/kind/metabolomics/ms-adduct-calculator/
 - https://github.com/rformassspectrometry/MetaboCoreUtils

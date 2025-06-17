@@ -1,4 +1,15 @@
-# Write a function to determine the adduct forms given the provided monoisotopic masses and m/z
+#' @title Determine the adduct forms
+#' 
+#' @description
+#' This function determines the adduct forms given the provided monoisotopic masses and m/z.
+#'
+#' @param mass A numeric vector of monoisotopic masses.
+#' @param mz A numeric vector of m/z values.
+#' @param ion_mode A character string indicating the ion mode. Default is "positive".
+#' @param mass_accuracy A numeric value indicating the mass accuracy in ppm. Default is 10.
+#'
+#' @return A data frame with the mass, mz, adduct, and ppm error.
+#' @export
 adductForm = function(mass, mz, ion_mode="positive", mass_accuracy=10){
     data(adduct_definition)
 

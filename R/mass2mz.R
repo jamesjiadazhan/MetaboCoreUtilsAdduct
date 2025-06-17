@@ -1,3 +1,15 @@
+#' @title Calculate mass-to-charge ratio from a monoisotopic mass
+#'
+#' @description
+#'
+#' `mass2mz` calculates the mass-to-charge ratio from a monoisotopic mass in the wide format.
+#'
+#' @param x A numeric vector of monoisotopic masses.
+#' @param adduct A character string indicating the adduct. Default is "M+H". If multiple adducts are provided, they should be provided as a vector, like c("M+H", "M+Na").
+#'
+#' @return A data frame with the mass, adduct, and mz.
+#' @export
+
 mass2mz <- function(x, adduct = "M+H") {
 
     #  use the adduct definition in the package

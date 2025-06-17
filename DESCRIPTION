@@ -6,7 +6,7 @@ Description: MetaboCoreUtilsAdduct includes simplified and improved functions to
 Authors@R:
     c(person(given = "Jiada", family = "Zhan",
                      email = "jzha832@emory.edu",
-                     role = c("ctb"),
+                     role = c("aut", "cre"),
                      comment = c(ORCID = "0000-0003-2480-8760")))
 Depends:
     R (>= 4.0)

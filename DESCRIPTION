@@ -2,44 +2,12 @@ Package: MetaboCoreUtilsAdduct
 Title: Core Utils for Metabolomics Data
 Version: 1.12.0
 Description: MetaboCoreUtilsAdduct includes simplified and improved functions to calculate between ion
-    (adduct) and compound mass-to-charge ratios and masses or functions to work
-    with chemical formulas.
+    (adduct) and compound mass-to-charge ratios and masses or functions to work with chemical formulas (adapted from MetaboCoreUtils, https://github.com/rformassspectrometry/MetaboCoreUtils).
 Authors@R:
     c(person(given = "Jiada", family = "Zhan",
                      email = "jzha832@emory.edu",
                      role = c("ctb"),
-                     comment = c(ORCID = "0000-0003-2480-8760")),
-      person(given = "Johannes", family = "Rainer",
-                     email = "Johannes.Rainer@eurac.edu",
-                     role = c("aut", "cre"),
-                     comment = c(ORCID = "0000-0002-6977-7147")),
-      person(given = "Michael", family = "Witting",
-                     email = "michael.witting@helmholtz-muenchen.de",
-                     role = c("aut"),
-                     comment = c(ORCID = "0000-0002-1462-4426")),
-      person(given = "Andrea", family = "Vicini",
-                     email = "andrea.vicini@eurac.edu",
-                     role = "aut"),
-      person(given = "Liesa", family = "Salzer",
-                     email = "liesa.salzer@helmholtz-muenchen.de",
-                     role = "ctb",
-                     comment = c(ORCID = "0000-0003-0761-0656")),
-      person(given = "Sebastian", family = "Gibb",
-                     email = "mail@sebastiangibb.de",
-                     role = "aut",
-                     comment = c(ORCID = "0000-0001-7406-4443")),
-      person(given = "Michael", family = "Stravs",
-                     email = "stravsmi@eawag.ch",
-                     role = "ctb",
-                     comment = c(ORCID = "0000-0002-1426-8572")),
-      person(given = "Roger", family = "Gine",
-                     email = "alrgibe9@gmail.com",
-                     role = c("aut"),
-                     comment = c(ORCID = "0000-0003-0288-9619")),
-      person(given = "Philippine", family = "Louail",
-                     email = "philippine.louail@eurac.edu",
-                     role = c("aut"),
-                     comment = c(ORCID = "0009-0007-5429-6846")))
+                     comment = c(ORCID = "0000-0003-2480-8760")))
 Depends:
     R (>= 4.0)
 Imports:

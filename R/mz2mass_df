@@ -1,19 +1,18 @@
-# calculate the monoisotopic mass given the m/z and adduct
 mz2mass_df <- function(x, adduct = "M+H") {
-  #  use the adduct definition in the package
-  data(adduct_definition)
-  adduct_definition <- adduct_definition %>%
-    filter(name %in% adduct)
-  
-  # Expand grid to get all combinations of x and adducts
-  comb <- expand.grid(x = x, name = adduct_definition$name, stringsAsFactors = FALSE)
-  # Merge with adduct_definition to get mass_add and mass_multi for each combination
-  comb <- merge(comb, adduct_definition, by = "name")
-  # Calculate adduct mass
-  comb$adduct_mass <- (comb$x - comb$mass_add) / comb$mass_multi
-  
-  # Arrange columns for clarity
-  comb <- comb[, c("x", "name", "adduct_mass")]
-  names(comb) <- c("mz", "adduct", "adduct_mass")
-  return(comb)
+    # use the adduct definition in the package
+    data(adduct_definition)
+    adduct_definition <- adduct_definition %>%
+      filter(name %in% adduct)
+    
+    # Expand grid to get all combinations of x and adducts
+    comb <- expand.grid(x = x, name = adduct_definition$name, stringsAsFactors = FALSE)
+    # Merge with adduct_definition to get mass_add and mass_multi for each combination
+    comb <- merge(comb, adduct_definition, by = "name")
+    # Calculate adduct mass
+    comb$adduct_mass <- (comb$x - comb$mass_add) / comb$mass_multi
+    
+    # Arrange columns for clarity
+    comb <- comb[, c("x", "name", "adduct_mass")]
+    names(comb) <- c("mz", "adduct", "adduct_mass")
+    return(comb)
 }
